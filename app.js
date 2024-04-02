@@ -30,27 +30,27 @@ const server = http.createServer((req, res) => {
 
         if (isNaN(peso) || isNaN(altura)) {
             res.writeHead(200, { "Content-Type": "html/plain; charset=utf-8" })
-            res.end('Erro 404')
+            res.end('Erro 400')
         } else {
             const imc =  peso / (altura ^ 2) 
             if (imc < 18.5) {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Abaixo do peso IMC:${imc}`)
+                res.end(`Abaixo do peso IMC:${imc.toFixed}`)
             } else if (imc >= 18.5 && imc < 24.9) {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Peso normal IMC:${imc}`)
+                res.end(`Peso normal IMC:${imc.toFixed(2)}`)
             } else if (imc > 25 && imc < 29.9) {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Excesso de peso IMC:${imc}`)
+                res.end(`Excesso de peso IMC:${imc.toFixed(2)}`)
             } else if (imc > 30 && imc < 34.9) {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Obesidade classe I IMC:${imc}`)
+                res.end(`Obesidade classe I IMC:${imc.toFixed(2)}`)
             } else if (imc > 35 && imc < 39.9) {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Obesidade classe II IMC:${imc}`)
+                res.end(`Obesidade classe II IMC:${imc.toFixed}`)
             } else {
                 res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-                res.end(`Obesidade classe III IMC:${imc}`)
+                res.end(`Obesidade classe III IMC:${imc.toFixed}`)
             }
         }
 
