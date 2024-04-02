@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dólar</title>
+</head>
+<body>
+    <h1>Calculadora de conversão</h1>
+    
+    <input type="number" value="Dólar: " placeholder="Quantidade em dolár" id="Dolar">
+    <button onclick="conversao()">Calcular</button>
+
+
+    <script>
+        function conversao() {
+            var dol = parseFloat(document.getElementById("Dólar").value);
+            var res = document.getElementById("resultado");
+
+            if (!isNaN(dol)) {
+                var valor =parseFloat(dol/5.01);
+                res.innerHTML = "Conversão: " + dol.toFixed(2);
+            }}          
+    </script>
+    
+    
+</body>
+</html>
