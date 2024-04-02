@@ -77,18 +77,18 @@ const server = http.createServer((req, res) => {
         }
     } else if (path === "/dolar") {
 
-        const valorDolar = parseFloat(query.dolar);
-        const valorReais = parseFloat(query.reais);
+        const dolar = 5.03;
+        const valorReal = parseFloat(query.real);
 
-        if (isNaN(valorDolar) || isNaN(valorReais)) {
+        if (isNaN(valorReal)) {
             res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
             res.end('Erro 404')
         } else {
 
-            const convertido = valorReais / valorDolar
+            const conversao = valorReal / dolar
 
             res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
-            res.end(`R$${valorReais.toFixed(2)} por U$${valorDolar.toFixed(2)} é igaul u$${convertido.toFixed(2)}convertido`)
+            res.end(`Com R$ ${valorReal.toFixed(2)} seu saldo em dolár é U$ ${conversao.toFixed(2)}`)
         }
     } else {
         res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" })
